@@ -49,6 +49,7 @@ dependencies {
     //ui
     implementation dependencies.appCompat
     implementation dependencies.constraintLayout
+    implementation dependencies.material
     //list
     implementation dependencies.recyclerView
     //animation

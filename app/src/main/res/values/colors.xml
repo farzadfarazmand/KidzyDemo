@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#6200EE</color>
-    <color name="colorPrimaryDark">#3700B3</color>
-    <color name="colorAccent">#03DAC5</color>
+    <color name="colorPrimary">#541299</color>
+    <color name="colorPrimaryDark">#480D81</color>
+    <color name="colorAccent">#BBBBBB</color>
+
+    <!--text-->
+    <color name="text_primary_color">#212121</color>
+    <color name="text_secondary_color">#212121</color>
+    <color name="text_shadow">#aaffffff</color>
+
+    <!--toolbar shadow-->
+    <color name="toolbar_shadow_start_color">#40000000</color>
+    <color name="toolbar_shadow_end_color">@android:color/transparent</color>
+
+    <!--row users list-->
+    <color name="row_users_avatar_bg_color">#EDE8E4</color>
+    <color name="row_users_title_color">#0A0C32</color>
+    <color name="row_users_description_color">#656484</color>
+    <color name="row_users_divider_color">#F2F2F2</color>
+
 </resources>

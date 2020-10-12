@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">KidzyDemo</string>
+
+    <!--Users list-->
+    <string name="users_list_toolbar_title">Kidzy Demo App</string>
+
+
 </resources>

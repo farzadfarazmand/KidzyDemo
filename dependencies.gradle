@@ -31,20 +31,23 @@ ext {
     // UI
     appcompatVersion = '1.2.0'
     constraintLayoutVersion = '2.0.2'
+    materialVersion = '1.1.0'
+
     // list
-    recyclerViewVersion = "1.1.0"
-    recyclerviewAnimationVersion = '4.0.1'
+    recyclerViewVersion = '1.1.0'
+    recyclerviewAnimationVersion = '3.0.0'
     //animation
-    yoyoVersion = "2.4"
+    yoyoVersion = '2.4'
     shimmerViewVersion = '0.5.0'
 
-    multidexVersion = "2.0.1"
+    multidexVersion = '2.0.1'
 
     appDependencies = [
             kotlin                 : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion",
             appCompat              : "androidx.appcompat:appcompat:$appcompatVersion",
             androidxKtx            : "androidx.core:core-ktx:$androidxCoreKtxVersion",
             constraintLayout       : "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion",
+            material               : "com.google.android.material:material:$materialVersion",
 
             recyclerView           : "androidx.recyclerview:recyclerview:$recyclerViewVersion",
             recyclerviewAnimations : "jp.wasabeef:recyclerview-animators:$recyclerviewAnimationVersion",

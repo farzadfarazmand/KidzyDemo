@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--toolbar-->
+    <dimen name="toolbar_side_padding">5dp</dimen>
+    <dimen name="toolbar_button_size">40dp</dimen>
+    <dimen name="toolbar_button_padding">10dp</dimen>
+    <dimen name="toolbar_title_text_size">18dp</dimen>
+    <dimen name="toolbar_shadow_height">5dp</dimen>
+
+    <!--row users list-->
+    <dimen name="row_users_avatar_size">100dp</dimen>
+    <dimen name="row_users_avatar_padding">2dp</dimen>
+
+
+</resources>
