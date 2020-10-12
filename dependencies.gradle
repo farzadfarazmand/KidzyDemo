@@ -1,0 +1,97 @@
+ext {
+    // Android SDk versions
+    compileSdkVersion = 29
+    targetSdkVersion = 29
+    minSdkVersion = 15
+    buildToolsVersion = "30.0.2"
+
+
+    // Dependencies versions
+
+    //Kotlin
+    androidxCoreKtxVersion = '1.3.2'
+
+    //async
+    coroutinesCoreVersion = '1.3.9'
+    // DI
+    dagger2Version = '2.29.1'
+    // Lifecycle
+    lifecycleExtensionsVersion = '2.2.0'
+
+    //Networking
+    retrofitVersion = '2.7.0'
+    loggingInterceptorVersion = '4.9.0'
+
+    //Database
+    roomVersion = '2.2.5'
+
+    // Image loading
+    glideVersion = '4.11.0'
+
+    // UI
+    appcompatVersion = '1.2.0'
+    constraintLayoutVersion = '2.0.2'
+    // list
+    recyclerViewVersion = "1.1.0"
+    recyclerviewAnimationVersion = '4.0.1'
+    //animation
+    yoyoVersion = "2.4"
+    shimmerViewVersion = '0.5.0'
+
+    multidexVersion = "2.0.1"
+
+    appDependencies = [
+            kotlin                 : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion",
+            appCompat              : "androidx.appcompat:appcompat:$appcompatVersion",
+            androidxKtx            : "androidx.core:core-ktx:$androidxCoreKtxVersion",
+            constraintLayout       : "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion",
+
+            recyclerView           : "androidx.recyclerview:recyclerview:$recyclerViewVersion",
+            recyclerviewAnimations : "jp.wasabeef:recyclerview-animators:$recyclerviewAnimationVersion",
+
+            yoyoAnimation          : "com.daimajia.androidanimations:library:$yoyoVersion@aar",
+            shimmerAnimation       : "com.facebook.shimmer:shimmer:$shimmerViewVersion",
+
+            dagger2Processor       : "com.google.dagger:dagger-compiler:$dagger2Version",
+            dagger2                : "com.google.dagger:dagger:$dagger2Version",
+            dagger2Android         : "com.google.dagger:dagger-android:$dagger2Version",
+            dagger2AndroidProcessor: "com.google.dagger:dagger-android-processor:$dagger2Version",
+
+            lifecycleExtensions    : "androidx.lifecycle:lifecycle-extensions:$lifecycleExtensionsVersion",
+            lifecycleViewModel     : "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleExtensionsVersion",
+
+            roomRuntime            : "androidx.room:room-runtime:$roomVersion",
+
+            glide                  : "com.github.bumptech.glide:glide:$glideVersion",
+            glideCompiler          : "com.github.bumptech.glide:compiler:$glideVersion",
+
+            multidex               : "androidx.multidex:multidex:$multidexVersion"
+    ]
+
+    domainDependencies = [
+            kotlin          : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion",
+
+            dagger2Processor: "com.google.dagger:dagger-compiler:$dagger2Version",
+            dagger2         : "com.google.dagger:dagger:$dagger2Version",
+
+            coroutinesCore  : "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesCoreVersion"
+    ]
+
+    dataDependencies = [
+            kotlin            : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion",
+
+            dagger2Processor  : "com.google.dagger:dagger-compiler:$dagger2Version",
+            dagger2           : "com.google.dagger:dagger:$dagger2Version",
+
+            retrofit          : "com.squareup.retrofit2:retrofit:$retrofitVersion",
+            gsonConverter     : "com.squareup.retrofit2:converter-gson:$retrofitVersion",
+            loggingInterceptor: "com.squareup.okhttp3:logging-interceptor:$loggingInterceptorVersion",
+
+            roomRuntime       : "androidx.room:room-runtime:$roomVersion",
+            roomCompiler      : "androidx.room:room-compiler:$roomVersion",
+            roomRxjava2       : "androidx.room:room-rxjava2:$roomVersion",
+            roomKtx           : "androidx.room:room-ktx:$roomVersion",
+
+            coroutinesCore    : "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesCoreVersion"
+    ]
+}

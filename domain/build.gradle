@@ -1,0 +1,23 @@
+apply plugin: 'java-library'
+apply plugin: 'kotlin'
+apply plugin: 'kotlin-kapt'
+
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    def dependencies = rootProject.ext.domainDependencies
+
+    //kotlin
+    implementation dependencies.kotlin
+
+    //DI
+    api dependencies.dagger2
+    kapt dependencies.dagger2Processor
+
+    //async
+    implementation dependencies.coroutinesCore
+}
+
+sourceCompatibility = "8"
+targetCompatibility = "8"

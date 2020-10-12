@@ -1,0 +1,35 @@
+apply plugin: 'java-library'
+apply plugin: 'kotlin'
+apply plugin: 'kotlin-kapt'
+
+dependencies {
+
+    api project(':domain')
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    def dependencies = rootProject.ext.dataDependencies
+
+    //kotlin
+    implementation dependencies.kotlin
+
+    //DI
+    api dependencies.dagger2
+    kapt dependencies.dagger2Processor
+
+    //Network
+    api dependencies.retrofit
+    api dependencies.gsonConverter
+    api dependencies.loggingInterceptor
+
+    //Database
+    implementation dependencies.roomRuntime
+    implementation dependencies.roomRxjava2
+    implementation dependencies.roomKtx
+    kapt dependencies.roomCompiler
+
+    //Async
+    implementation dependencies.coroutinesCore
+}
+
+sourceCompatibility = "8"
+targetCompatibility = "8"

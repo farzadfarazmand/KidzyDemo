@@ -1,18 +1,20 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
-    compileSdkVersion 29
-    buildToolsVersion "30.0.2"
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
 
     defaultConfig {
         applicationId "com.github.farzadfarazmand.kidzydemo"
-        minSdkVersion 15
-        targetSdkVersion 29
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
-
+        vectorDrawables.useSupportLibrary = true
+        multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -22,14 +24,59 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    dataBinding {
+        enabled true
+    }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implementation 'androidx.core:core-ktx:1.3.2'
-    implementation 'androidx.appcompat:appcompat:1.2.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.2'
+
+    def dependencies = rootProject.ext.appDependencies
+
+    implementation dependencies.kotlin
+
+    //ui
+    implementation dependencies.appCompat
+    implementation dependencies.constraintLayout
+    //list
+    implementation dependencies.recyclerView
+    //animation
+    implementation dependencies.yoyoAnimation
+    implementation dependencies.shimmerAnimation
+    implementation dependencies.recyclerviewAnimations
+
+    //image loading
+    implementation dependencies.glide
+    kapt dependencies.glideCompiler
+
+    //Room database
+    implementation dependencies.roomRuntime
+
+    //lifecycle
+    implementation dependencies.lifecycleExtensions
+    implementation dependencies.lifecycleViewModel
+    implementation dependencies.androidxKtx
+
+    //DI
+    implementation dependencies.dagger2
+    implementation dependencies.dagger2Android
+    kapt dependencies.dagger2AndroidProcessor
+    kapt dependencies.dagger2Processor
+
+    //Multidex
+    implementation dependencies.multidex
+
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
