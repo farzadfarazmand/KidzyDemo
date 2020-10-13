@@ -11,6 +11,9 @@ dependencies {
     //kotlin
     implementation dependencies.kotlin
 
+    //serialization
+    implementation dependencies.gson
+
     //DI
     api dependencies.dagger2
     kapt dependencies.dagger2Processor
