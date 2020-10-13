@@ -12,4 +12,16 @@ class BookmarkedUserDataSource @Inject constructor(private val userDAO: UserDAO)
         return flow { emit(userDAO.allBookmarks()) }
     }
 
+    suspend fun changeUserBookmarkStatus(
+        user: UserEntity,
+        alreadyBookmarked: Boolean
+    ): Flow<Boolean> {
+        if (alreadyBookmarked) {
+            userDAO.removeBookmarkedUser(user)
+        } else {
+            userDAO.bookmarkUser(user)
+        }
+        return flow { emit(!alreadyBookmarked) }
+    }
+
 }

@@ -32,6 +32,7 @@ ext {
 
     // UI
     appcompatVersion = '1.2.0'
+    fragmentKtxVersion = '1.1.0'
     constraintLayoutVersion = '2.0.2'
     materialVersion = '1.1.0'
 
@@ -48,6 +49,7 @@ ext {
             kotlin                 : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion",
             appCompat              : "androidx.appcompat:appcompat:$appcompatVersion",
             androidxKtx            : "androidx.core:core-ktx:$androidxCoreKtxVersion",
+            fragmentKtx            : "androidx.fragment:fragment-ktx:$fragmentKtxVersion",
             constraintLayout       : "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion",
             material               : "com.google.android.material:material:$materialVersion",
 

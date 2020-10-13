@@ -49,6 +49,7 @@ dependencies {
 
     //ui
     implementation dependencies.appCompat
+    implementation dependencies.fragmentKtx
     implementation dependencies.constraintLayout
     implementation dependencies.material
     //list

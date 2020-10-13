@@ -1,10 +1,19 @@
 package com.github.farzadfarazmand.kidzydemo.view.activtiy
 
 import android.os.Bundle
+import androidx.activity.viewModels
+import androidx.lifecycle.ViewModelProvider
 import com.github.farzadfarazmand.kidzydemo.R
+import com.github.farzadfarazmand.kidzydemo.viewmodel.UsersListViewModel
 import kotlinx.android.synthetic.main.layout_toolbar.*
+import javax.inject.Inject
 
 class UsersListActivity : BaseActivity() {
+
+    @Inject
+    lateinit var viewModelFactory: ViewModelProvider.Factory
+
+    private val usersListViewModel: UsersListViewModel by viewModels { viewModelFactory }
 
     override fun setLayoutId(): Int = R.layout.activity_users_list
 
@@ -24,7 +33,7 @@ class UsersListActivity : BaseActivity() {
         //right button
         toolbarRightButton.setImageResource(R.drawable.ic_toolbar_bookmark)
         toolbarRightButton.setOnClickListener {
-            //TODO : implement search
+            //TODO : implement bookmark list
         }
 
     }
