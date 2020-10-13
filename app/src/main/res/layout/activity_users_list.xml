@@ -17,4 +17,11 @@
         android:layout_below="@+id/toolbar"
         tools:listitem="@layout/row_users_list" />
 
+    <include
+        layout="@layout/layout_users_list_loading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolbar"
+        android:visibility="gone" />
+
 </RelativeLayout>

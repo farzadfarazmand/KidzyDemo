@@ -17,6 +17,7 @@
     <color name="row_users_avatar_bg_color">#EDE8E4</color>
     <color name="row_users_title_color">#0A0C32</color>
     <color name="row_users_description_color">#656484</color>
-    <color name="row_users_divider_color">#F2F2F2</color>
+    <color name="row_users_divider_color">#30000000</color>
+    <color name="row_users_placeholder_color">#EDE8E4</color>
 
 </resources>
