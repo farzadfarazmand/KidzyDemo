@@ -8,9 +8,9 @@ import javax.inject.Inject
 
 class UsersListDataSource @Inject constructor(private val apiService: UsersListApiService) {
 
-    suspend fun getUsersFromApi(): Flow<UsersListResponse> {
+    suspend fun getUsersFromApi(page: Int): Flow<UsersListResponse> {
 
-        val response = apiService.getUsersList()
+        val response = apiService.getUsersList(page)
         return flow { emit(response) }
 
 

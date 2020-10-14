@@ -3,9 +3,7 @@ package com.github.farzadfarazmand.kidzydemo.view.activtiy
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.viewModels
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.github.farzadfarazmand.kidzydemo.R
 import com.github.farzadfarazmand.kidzydemo.models.UserModel
@@ -60,10 +58,11 @@ class UsersListActivity : BaseActivity() {
 
     private fun initUsersList() {
         val linearLayoutManager = LinearLayoutManager(this)
-        val itemDecoration = DividerItemDecoration(this, linearLayoutManager.orientation)
         usersList.layoutManager = linearLayoutManager
-        usersList.addItemDecoration(itemDecoration)
-        usersListAdapter = UsersListAdapter(mutableListOf())
+        usersList.setHasFixedSize(true)
+        usersListAdapter = UsersListAdapter {
+            //TODO show user detail activity
+        }
         usersList.adapter = usersListAdapter
 
         usersList.addOnScrollListener(object :
@@ -74,8 +73,8 @@ class UsersListActivity : BaseActivity() {
                 dy: Int
             ) {
                 super.onScrolled(recyclerView, dx, dy)
-//                if (usersListViewModel.uiState.value == Loading || !usersListViewModel.hasMoreItem)
-//                    return
+                if (usersListViewModel.uiState.value == Loading || !usersListViewModel.hasMoreItem)
+                    return
 
                 val visibleItemCount = linearLayoutManager.childCount
                 val totalItemCount = linearLayoutManager.itemCount
@@ -94,7 +93,7 @@ class UsersListActivity : BaseActivity() {
     }
 
     private fun observeUserList() {
-        usersListViewModel.usersList.observe(this, Observer {
+        usersListViewModel.usersList.observe(this, {
             showResults(it)
         })
     }
@@ -104,7 +103,7 @@ class UsersListActivity : BaseActivity() {
             usersList.apply {
                 adapter =
                     ScaleInAnimationAdapter(usersListAdapter.apply {
-                        addAll(users)
+                        submitList(users)
                     })
             }
         } else {
@@ -113,7 +112,7 @@ class UsersListActivity : BaseActivity() {
     }
 
     private fun observeUiState() {
-        usersListViewModel.uiState.observe(this, Observer {
+        usersListViewModel.uiState.observe(this, {
             when (it) {
                 is Loading -> showLoading()
                 is Success -> hideLoading()

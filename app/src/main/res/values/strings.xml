@@ -3,6 +3,7 @@
 
     <!--Users list-->
     <string name="users_list_toolbar_title">Kidzy Demo App</string>
+    <string name="users_list_no_user_error">There is no User!!</string>
 
 
 </resources>

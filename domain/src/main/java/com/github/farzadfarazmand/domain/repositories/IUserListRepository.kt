@@ -4,5 +4,5 @@ import com.github.farzadfarazmand.domain.models.User
 import kotlinx.coroutines.flow.Flow
 
 interface IUserListRepository {
-    suspend fun getUsersList(): Flow<List<User>>
+    suspend fun getUsersList(page: Int): Flow<List<User>>
 }
