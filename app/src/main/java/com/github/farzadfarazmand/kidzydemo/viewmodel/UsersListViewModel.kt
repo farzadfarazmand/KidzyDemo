@@ -21,7 +21,7 @@ class UsersListViewModel @Inject constructor(
 
     private var pageNum = 1
     private var loading = false
-    var hasMoreItem = true
+    private var hasMoreItem = true
 
     val usersList: LiveData<MutableList<UserModel>>
         get() = _userList
