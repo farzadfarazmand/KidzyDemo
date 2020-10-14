@@ -16,13 +16,14 @@
         android:id="@+id/userParent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/row_users_side_padding"
+        android:paddingRight="@dimen/row_users_side_padding"
         android:background="?android:attr/selectableItemBackground">
 
         <FrameLayout
             android:id="@+id/userAvatarContainer"
             android:layout_width="@dimen/row_users_avatar_size"
             android:layout_height="@dimen/row_users_avatar_size"
-            android:layout_margin="@dimen/md_margin_padding_size_medium"
             android:background="@drawable/bg_row_users_avatar"
             android:padding="@dimen/row_users_avatar_padding"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -42,7 +43,6 @@
             android:layout_width="0dp"
             android:layout_height="@dimen/md_width_height_size_medium"
             android:layout_marginLeft="@dimen/md_margin_padding_size_medium"
-            android:layout_marginRight="@dimen/md_margin_padding_size_medium"
             android:text="@{user.fullName}"
             android:gravity="center_vertical"
             android:maxLines="1"
@@ -53,7 +53,6 @@
             app:autoSizeTextType="uniform"
             app:layout_constraintBottom_toTopOf="@+id/userEmail"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/userAvatarContainer"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_chainStyle="packed"
@@ -64,7 +63,6 @@
             android:layout_width="0dp"
             android:layout_height="@dimen/md_width_height_size_small"
             android:layout_marginLeft="@dimen/md_margin_padding_size_medium"
-            android:layout_marginRight="@dimen/md_margin_padding_size_medium"
             android:text="@{user.email}"
             android:gravity="center_vertical"
             android:maxLines="1"
@@ -74,17 +72,14 @@
             app:autoSizeTextType="uniform"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/userAvatarContainer"
             app:layout_constraintTop_toBottomOf="@+id/userFullname"
             tools:text="farzad.farazmand@gmail.com" />
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:layout_marginLeft="@dimen/md_margin_padding_size_medium"
+            android:layout_height="1dp"
             android:layout_marginTop="@dimen/md_margin_padding_size_medium"
-            android:layout_marginRight="@dimen/md_margin_padding_size_medium"
             android:background="@color/row_users_divider_color"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

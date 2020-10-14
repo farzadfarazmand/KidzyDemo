@@ -17,8 +17,8 @@
     <style name="UserDetailButtonsStyle">
         <item name="android:layout_width">@dimen/user_detail_button_size</item>
         <item name="android:layout_height">@dimen/user_detail_button_size</item>
-        <item name="android:padding">@dimen/md_margin_padding_size_small</item>
-        <item name="android:layout_marginRight">@dimen/md_margin_padding_size_medium</item>
+        <item name="android:padding">@dimen/user_detail_button_padding</item>
+        <item name="android:layout_marginRight">@dimen/user_detail_side_margin</item>
         <item name="android:background">?attr/selectableItemBackgroundBorderless</item>
     </style>
 

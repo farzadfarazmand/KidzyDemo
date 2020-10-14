@@ -9,7 +9,7 @@ import androidx.core.app.ActivityOptionsCompat
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProviders
 import com.github.farzadfarazmand.kidzydemo.R
-import com.github.farzadfarazmand.kidzydemo.databinding.ActivtyUserDetailBinding
+import com.github.farzadfarazmand.kidzydemo.databinding.ActivityUserDetailBinding
 import com.github.farzadfarazmand.kidzydemo.di.factory.UserDetailViewModelFactory
 import com.github.farzadfarazmand.kidzydemo.models.UserModel
 import com.github.farzadfarazmand.kidzydemo.util.hide
@@ -33,14 +33,14 @@ class UserDetailActivity : AppCompatActivity() {
         }
     }
 
-    private lateinit var binding: ActivtyUserDetailBinding
+    private lateinit var binding: ActivityUserDetailBinding
     private lateinit var userDetailViewModel: UserDetailViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activty_user_detail)
+        setContentView(R.layout.activity_user_detail)
 
-        binding = DataBindingUtil.setContentView(this, R.layout.activty_user_detail)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_user_detail)
 
         handleIntent()
         initToolbar()
