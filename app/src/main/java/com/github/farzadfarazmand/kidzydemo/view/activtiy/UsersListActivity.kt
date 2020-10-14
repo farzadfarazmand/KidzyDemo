@@ -73,7 +73,7 @@ class UsersListActivity : BaseActivity() {
                 dy: Int
             ) {
                 super.onScrolled(recyclerView, dx, dy)
-                if (usersListViewModel.uiState.value == Loading || !usersListViewModel.hasMoreItem)
+                if (!usersListViewModel.hasMoreItem)
                     return
 
                 val visibleItemCount = linearLayoutManager.childCount

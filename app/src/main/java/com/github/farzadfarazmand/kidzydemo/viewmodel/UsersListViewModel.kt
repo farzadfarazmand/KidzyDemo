@@ -20,6 +20,7 @@ class UsersListViewModel @Inject constructor(
 ) : UiStateViewModel() {
 
     private var pageNum = 1
+    private var loading = false
     var hasMoreItem = true
 
     val usersList: LiveData<MutableList<UserModel>>
@@ -33,13 +34,14 @@ class UsersListViewModel @Inject constructor(
     }
 
     fun loadUsers() {
-        if (hasMoreItem && _uiState.value != Loading) {
+        if (hasMoreItem && !loading) {
+
+            loading = true
 
             if (isFirstPage())
                 _uiState.value = Loading
 
             viewModelScope.launch(handler) {
-
                 userListRepositoryUseCase.invoke(pageNum).collect { results ->
                     if (results.isNullOrEmpty()) {
                         if (isFirstPage()) {
@@ -54,6 +56,7 @@ class UsersListViewModel @Inject constructor(
                 }
                 _uiState.value = Success
                 pageNum += 1
+                loading = false
             }
         }
     }
