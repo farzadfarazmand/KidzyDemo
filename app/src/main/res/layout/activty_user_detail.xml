@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="user"
+            type="com.github.farzadfarazmand.kidzydemo.models.UserModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            android:id="@+id/include"
+            layout="@layout/layout_toolbar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            style="@style/ToolbarShadowStyle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/include" />
+
+        <ImageView
+            android:id="@+id/userAvatar"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@+id/imageGuideline"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/include"
+            app:layout_constraintVertical_bias="0.0"
+            tools:src="@mipmap/ic_launcher" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/imageGuideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.40" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/userFullname"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/md_width_height_size_large"
+            android:layout_marginLeft="@dimen/md_margin_padding_size_medium"
+            android:layout_marginTop="@dimen/md_margin_padding_size_medium"
+            android:layout_marginRight="@dimen/md_margin_padding_size_medium"
+            android:gravity="center_vertical"
+            android:maxLines="1"
+            android:text="@{user.fullName}"
+            android:textColor="@color/user_detail_name_color"
+            android:textStyle="bold"
+            app:autoSizeMaxTextSize="@dimen/md_text_size_large"
+            app:autoSizeMinTextSize="@dimen/md_text_size_small"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintEnd_toStartOf="@+id/btnSendEmail"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/userAvatar"
+            tools:text="Farzad Farazmand" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/btnSendEmail"
+            style="@style/UserDetailButtonsStyle"
+            app:layout_constraintBottom_toBottomOf="@+id/btnBookmarkUser"
+            app:layout_constraintEnd_toStartOf="@+id/btnBookmarkUser"
+            app:layout_constraintTop_toTopOf="@+id/btnBookmarkUser"
+            app:srcCompat="@drawable/ic_message" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/btnBookmarkUser"
+            style="@style/UserDetailButtonsStyle"
+            app:layout_constraintBottom_toBottomOf="@+id/userFullname"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/userFullname"
+            app:srcCompat="@drawable/ic_bookmark_outline" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginLeft="@dimen/md_margin_padding_size_medium"
+            android:layout_marginTop="@dimen/md_margin_padding_size_medium"
+            android:layout_marginRight="@dimen/md_margin_padding_size_medium"
+            android:text="@string/user_detail_description"
+            android:textSize="@dimen/md_text_size_small"
+            android:textColor="@color/user_detail_description_color"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/userFullname"
+            tools:layout_editor_absoluteX="103dp" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

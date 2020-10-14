@@ -15,9 +15,13 @@
 
     <!--row users list-->
     <color name="row_users_avatar_bg_color">#EDE8E4</color>
-    <color name="row_users_title_color">#0A0C32</color>
-    <color name="row_users_description_color">#656484</color>
+    <color name="row_users_name_color">#0A0C32</color>
+    <color name="row_users_email_color">#656484</color>
     <color name="row_users_divider_color">#20000000</color>
     <color name="row_users_placeholder_color">#EDE8E4</color>
+
+    <!--user detail-->
+    <color name="user_detail_name_color">#000000</color>
+    <color name="user_detail_description_color">#333333</color>
 
 </resources>

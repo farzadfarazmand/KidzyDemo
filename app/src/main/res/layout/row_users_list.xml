@@ -13,6 +13,7 @@
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/userParent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?android:attr/selectableItemBackground">
@@ -45,7 +46,7 @@
             android:text="@{user.fullName}"
             android:gravity="center_vertical"
             android:maxLines="1"
-            android:textColor="@color/row_users_title_color"
+            android:textColor="@color/row_users_name_color"
             android:textStyle="bold"
             app:autoSizeMaxTextSize="@dimen/md_text_size_large"
             app:autoSizeMinTextSize="@dimen/md_text_size_small"
@@ -67,7 +68,7 @@
             android:text="@{user.email}"
             android:gravity="center_vertical"
             android:maxLines="1"
-            android:textColor="@color/row_users_title_color"
+            android:textColor="@color/row_users_name_color"
             app:autoSizeMaxTextSize="@dimen/md_text_size_small"
             app:autoSizeMinTextSize="@dimen/md_text_size_micro"
             app:autoSizeTextType="uniform"

@@ -61,7 +61,7 @@ class UsersListActivity : BaseActivity() {
         usersList.layoutManager = linearLayoutManager
         usersList.setHasFixedSize(true)
         usersListAdapter = UsersListAdapter {
-            //TODO show user detail activity
+            UserDetailActivity.lunchActivity(this, it)
         }
         usersList.adapter = usersListAdapter
 

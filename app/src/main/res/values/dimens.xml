@@ -12,5 +12,8 @@
     <dimen name="row_users_avatar_size">100dp</dimen>
     <dimen name="row_users_avatar_padding">2dp</dimen>
 
+    <!--user detail-->
+    <dimen name="user_detail_button_size">40dp</dimen>
+
 
 </resources>

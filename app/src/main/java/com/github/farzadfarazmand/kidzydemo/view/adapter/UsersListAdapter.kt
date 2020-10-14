@@ -34,7 +34,7 @@ class UsersListAdapter(val onClick: (UserModel) -> Unit) :
             binding.user = user
             binding.executePendingBindings()
             binding.userAvatar.loadCircleImage(user.avatar)
-
+            binding.userParent.setOnClickListener { onClick(user) }
         }
 
     }
