@@ -16,7 +16,6 @@ import com.github.farzadfarazmand.kidzydemo.view.adapter.UsersListAdapter
 import com.github.farzadfarazmand.kidzydemo.viewmodel.UsersListViewModel
 import com.github.farzadfarazmand.kidzydemo.viewmodel.common.Loading
 import com.github.farzadfarazmand.kidzydemo.viewmodel.common.Success
-import jp.wasabeef.recyclerview.adapters.ScaleInAnimationAdapter
 import kotlinx.android.synthetic.main.activity_users_list.*
 import kotlinx.android.synthetic.main.layout_toolbar.*
 import kotlinx.android.synthetic.main.layout_users_list_loading.*
@@ -103,9 +102,9 @@ class UsersListActivity : BaseActivity() {
         if (users.isNotEmpty()) {
             usersList.apply {
                 adapter =
-                    ScaleInAnimationAdapter(usersListAdapter.apply {
+                    usersListAdapter.apply {
                         submitList(users)
-                    })
+                    }
             }
         } else {
             showNoUserView()
