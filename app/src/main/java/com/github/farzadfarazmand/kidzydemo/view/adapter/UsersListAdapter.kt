@@ -1,6 +1,7 @@
 package com.github.farzadfarazmand.kidzydemo.view.adapter
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
@@ -9,7 +10,7 @@ import com.github.farzadfarazmand.kidzydemo.databinding.RowUsersListBinding
 import com.github.farzadfarazmand.kidzydemo.models.UserModel
 import com.github.farzadfarazmand.kidzydemo.util.loadCircleImage
 
-class UsersListAdapter(val onClick: (UserModel) -> Unit) :
+class UsersListAdapter(val onClick: (UserModel, View) -> Unit) :
     ListAdapter<UserModel, UsersListAdapter.UserViewHolder>(userModelDiffUtil) {
 
     private lateinit var inflater: LayoutInflater
@@ -34,7 +35,7 @@ class UsersListAdapter(val onClick: (UserModel) -> Unit) :
             binding.user = user
             binding.executePendingBindings()
             binding.userAvatar.loadCircleImage(user.avatar)
-            binding.userParent.setOnClickListener { onClick(user) }
+            binding.userParent.setOnClickListener { onClick(user, binding.root) }
         }
 
     }

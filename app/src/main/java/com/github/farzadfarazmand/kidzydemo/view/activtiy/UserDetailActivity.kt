@@ -4,6 +4,8 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
+import androidx.core.app.ActivityOptionsCompat
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProviders
 import com.github.farzadfarazmand.kidzydemo.R
@@ -20,10 +22,14 @@ class UserDetailActivity : AppCompatActivity() {
     companion object {
         private const val EXTRAS_USER_KEY = "UserDetail_User"
 
-        fun lunchActivity(context: Context, user: UserModel) {
+        fun lunchActivity(
+            context: Context,
+            user: UserModel,
+            transitionOption: ActivityOptionsCompat
+        ) {
             val intent = Intent(context, UserDetailActivity::class.java)
             intent.putExtra(EXTRAS_USER_KEY, user)
-            context.startActivity(intent)
+            ActivityCompat.startActivity(context, intent, transitionOption.toBundle())
         }
     }
 

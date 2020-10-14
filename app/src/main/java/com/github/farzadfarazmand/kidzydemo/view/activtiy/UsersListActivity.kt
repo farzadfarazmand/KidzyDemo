@@ -2,7 +2,10 @@ package com.github.farzadfarazmand.kidzydemo.view.activtiy
 
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.activity.viewModels
+import androidx.core.app.ActivityOptionsCompat
+import androidx.core.util.Pair
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.github.farzadfarazmand.kidzydemo.R
@@ -17,6 +20,7 @@ import jp.wasabeef.recyclerview.adapters.ScaleInAnimationAdapter
 import kotlinx.android.synthetic.main.activity_users_list.*
 import kotlinx.android.synthetic.main.layout_toolbar.*
 import kotlinx.android.synthetic.main.layout_users_list_loading.*
+import kotlinx.android.synthetic.main.row_users_list.view.*
 import javax.inject.Inject
 
 class UsersListActivity : BaseActivity() {
@@ -60,8 +64,8 @@ class UsersListActivity : BaseActivity() {
         val linearLayoutManager = LinearLayoutManager(this)
         usersList.layoutManager = linearLayoutManager
         usersList.setHasFixedSize(true)
-        usersListAdapter = UsersListAdapter {
-            UserDetailActivity.lunchActivity(this, it)
+        usersListAdapter = UsersListAdapter { user, view ->
+            UserDetailActivity.lunchActivity(this, user, createActivityTransitionOption(view))
         }
         usersList.adapter = usersListAdapter
 
@@ -137,6 +141,14 @@ class UsersListActivity : BaseActivity() {
 
     private fun showNoUserView() {
 
+    }
+
+    private fun createActivityTransitionOption(rowUser: View): ActivityOptionsCompat {
+        return ActivityOptionsCompat.makeSceneTransitionAnimation(
+            this,
+            Pair(rowUser.userAvatar, getString(R.string.transition_avatar)),
+            Pair(rowUser.userFullname, getString(R.string.transition_name))
+        )
     }
 
 }
