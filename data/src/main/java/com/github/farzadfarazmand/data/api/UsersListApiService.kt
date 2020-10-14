@@ -5,7 +5,7 @@ import retrofit2.http.GET
 
 interface UsersListApiService {
 
-    @GET("")
+    @GET("/api/users?page=2")
     suspend fun getUsersList(): UsersListResponse
 
 }

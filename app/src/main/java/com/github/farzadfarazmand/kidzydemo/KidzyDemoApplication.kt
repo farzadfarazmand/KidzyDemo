@@ -5,11 +5,13 @@ import android.content.Context
 import androidx.multidex.MultiDex
 import com.github.farzadfarazmand.kidzydemo.di.AppComponent
 import com.github.farzadfarazmand.kidzydemo.di.DaggerAppComponent
+import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
+import dagger.android.HasAndroidInjector
 import javax.inject.Inject
 
 
-class KidzyDemoApplication : Application() {
+class KidzyDemoApplication : Application(), HasAndroidInjector {
 
     @Inject
     lateinit var androidInjector: DispatchingAndroidInjector<Any>
@@ -31,4 +33,5 @@ class KidzyDemoApplication : Application() {
 
     open fun getApplicationComponent(): AppComponent = appComponent
 
+    override fun androidInjector(): AndroidInjector<Any> = androidInjector
 }
