@@ -9,7 +9,7 @@
     <dimen name="toolbar_shadow_height">5dp</dimen>
 
     <!--row users list-->
-    <dimen name="row_users_avatar_size">80dp</dimen>
+    <dimen name="row_users_avatar_size">85dp</dimen>
     <dimen name="row_users_avatar_padding">4dp</dimen>
     <dimen name="row_users_side_padding">24dp</dimen>
 
