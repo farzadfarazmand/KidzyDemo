@@ -3,6 +3,7 @@ package com.github.farzadfarazmand.kidzydemo.view.activtiy
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.core.app.ActivityOptionsCompat
 import androidx.core.util.Pair
@@ -135,7 +136,7 @@ class UsersListActivity : BaseActivity() {
     }
 
     private fun showError(error: Throwable) {
-
+        Toast.makeText(this, error.message, Toast.LENGTH_SHORT).show()
     }
 
     private fun showNoUserView() {

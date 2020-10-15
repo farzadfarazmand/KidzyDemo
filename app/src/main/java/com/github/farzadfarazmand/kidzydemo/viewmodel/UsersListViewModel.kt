@@ -7,7 +7,6 @@ import androidx.lifecycle.viewModelScope
 import com.github.farzadfarazmand.domain.usecases.UserListRepositoryUseCase
 import com.github.farzadfarazmand.kidzydemo.mapper.toPresentation
 import com.github.farzadfarazmand.kidzydemo.models.UserModel
-import com.github.farzadfarazmand.kidzydemo.viewmodel.common.EmptyList
 import com.github.farzadfarazmand.kidzydemo.viewmodel.common.Loading
 import com.github.farzadfarazmand.kidzydemo.viewmodel.common.Success
 import com.github.farzadfarazmand.kidzydemo.viewmodel.common.UiStateViewModel
@@ -36,6 +35,7 @@ class UsersListViewModel @Inject constructor(
     fun loadUsers() {
         if (hasMoreItem && !loading) {
 
+            // only one api request at a time
             loading = true
 
             if (isFirstPage())
@@ -44,9 +44,6 @@ class UsersListViewModel @Inject constructor(
             viewModelScope.launch(handler) {
                 userListRepositoryUseCase.invoke(pageNum).collect { results ->
                     if (results.isNullOrEmpty()) {
-                        if (isFirstPage()) {
-                            _uiState.value = EmptyList
-                        }
                         hasMoreItem = false
                     } else {
                         val newUsers = results.map { it.toPresentation() }
