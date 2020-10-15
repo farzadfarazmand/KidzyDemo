@@ -4,6 +4,7 @@ import com.github.farzadfarazmand.kidzydemo.di.ActivityScope
 import com.github.farzadfarazmand.kidzydemo.di.modules.base.BaseBindingModule
 import com.github.farzadfarazmand.kidzydemo.di.modules.base.BaseModule
 import com.github.farzadfarazmand.kidzydemo.view.activtiy.BaseActivity
+import com.github.farzadfarazmand.kidzydemo.view.activtiy.UserDetailActivity
 import com.github.farzadfarazmand.kidzydemo.view.activtiy.UsersListActivity
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
@@ -17,4 +18,8 @@ abstract class ActivityBuilderModule {
     @ActivityScope
     @ContributesAndroidInjector(modules = [UsersListModule::class])
     abstract fun provideUsersListActivity(): UsersListActivity
+
+    @ActivityScope
+    @ContributesAndroidInjector(modules = [BookmarkedUsersModule::class])
+    abstract fun provideUsersDetailActivity(): UserDetailActivity
 }

@@ -12,6 +12,15 @@ class BookmarkedUserDataSource @Inject constructor(private val userDAO: UserDAO)
         return flow { emit(userDAO.allBookmarks()) }
     }
 
+    suspend fun isUserBookmarked(userId: Int): Flow<Boolean> {
+        val user = userDAO.getUser(userId)
+        user?.let {
+            return flow { emit(true) }
+        } ?: kotlin.run {
+            return flow { emit(false) }
+        }
+    }
+
     suspend fun changeUserBookmarkStatus(
         user: UserEntity,
         alreadyBookmarked: Boolean

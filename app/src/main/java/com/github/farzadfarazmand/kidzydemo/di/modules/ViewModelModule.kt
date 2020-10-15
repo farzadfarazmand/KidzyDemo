@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.github.farzadfarazmand.kidzydemo.di.ViewModelKey
 import com.github.farzadfarazmand.kidzydemo.di.factory.ViewModelFactory
+import com.github.farzadfarazmand.kidzydemo.viewmodel.UserDetailViewModel
 import com.github.farzadfarazmand.kidzydemo.viewmodel.UsersListViewModel
 import dagger.Binds
 import dagger.Module
@@ -15,6 +16,11 @@ abstract class ViewModelModule {
     @Binds
     @ViewModelKey(UsersListViewModel::class)
     abstract fun bindUserListViewModel(usersListViewModel: UsersListViewModel): ViewModel
+
+    @IntoMap
+    @Binds
+    @ViewModelKey(UserDetailViewModel::class)
+    abstract fun bindUserDetailViewModel(userDetailViewModel: UserDetailViewModel): ViewModel
 
     @Binds
     abstract fun bindViewModelFactory(factory: ViewModelFactory): ViewModelProvider.Factory

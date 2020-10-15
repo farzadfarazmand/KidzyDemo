@@ -34,6 +34,7 @@ class UsersListAdapter(val onClick: (UserModel, View) -> Unit) :
 
             binding.user = user
             binding.executePendingBindings()
+            binding.userFullname.text = user.getFullName()
             binding.userAvatar.loadCircleImage(user.avatar)
             binding.userParent.setOnClickListener { onClick(user, binding.root) }
         }

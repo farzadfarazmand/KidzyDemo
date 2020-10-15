@@ -3,8 +3,8 @@ package com.github.farzadfarazmand.kidzydemo.mapper
 import com.github.farzadfarazmand.domain.models.User
 import com.github.farzadfarazmand.kidzydemo.models.UserModel
 
-fun User.toPresentation(): UserModel {
-    return UserModel(
+fun UserModel.toDomain(): User {
+    return User(
         this.id,
         this.avatar,
         this.email,
